@@ -44,7 +44,7 @@ network:
 ```
 
 You should be able to SSH to VM from host with static IP after running below commands in VM.
-``netplan --debug apply`
+`netplan --debug apply`
 `reboot`
 
 
