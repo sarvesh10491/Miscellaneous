@@ -2,9 +2,8 @@
 
 ### Network adapter settings for new Virtualbox VN
 
-Adapter 1 : Bridged  <-- To connect via SSH utility(Putty etc.) from host.
-Adapter 2 : NAT      <-- To connect to internet from VM.
-
+- Adapter 1 : Bridged  <-- To connect via SSH utility(Putty etc.) from host.
+- Adapter 2 : NAT      <-- To connect to internet from VM.
 
 
 # Post VM creation
@@ -23,8 +22,8 @@ sudo ufw allow ssh
 
 ### Setting static IP & also using internet over NAT :
 ---
-Modify a relevant netplan network configuration yaml file within `/etc/netplan/` directory with below.
-Change IP address for VM as applicable based on host Gateway IP.
+- Modify a relevant netplan network configuration yaml file within `/etc/netplan/` directory with below.
+- Change IP address for VM as applicable based on host Gateway IP.
 
 network:
 ```
@@ -50,8 +49,8 @@ You should be able to SSH to VM from host with static IP after running below com
 
 
 `ifconfig -a` command should display two ethernet sockets.
-enp0s3 => Bridged
-enp0s8 => NAT
+- enp0s3 => Bridged
+- enp0s8 => NAT
 
 ```
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
