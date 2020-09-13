@@ -43,9 +43,9 @@ network:
                 addresses: [8.8.8.8, 8.8.4.4]
 ```
 
-You should be able to SSH to VM from host with static IP after running below commands in VM.
-- `netplan --debug apply`
-- `reboot`
+You should be able to SSH to VM from host with static IP after running below commands in VM.<\n>
+`netplan --debug apply`
+`reboot`
 
 
 `ifconfig -a` command should display two ethernet sockets.
@@ -66,5 +66,5 @@ enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ### To change hostname:
 ---
-`hostnamectl set-hostname newHostName`
+`hostnamectl set-hostname newHostName`<\n>
 `reboot`
