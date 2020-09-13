@@ -3,7 +3,7 @@
 ### Network adapter settings for new Virtualbox VN
 
 - Adapter 1 : Bridged  <-- To connect via SSH utility(Putty etc.) from host.
-- Adapter 2 : NAT      <-- To connect to internet from VM.
+- Adapter 2 : NAT      <-- To connect to internet from VM.  
 
 
 # Post VM creation
@@ -43,8 +43,8 @@ network:
                 addresses: [8.8.8.8, 8.8.4.4]
 ```
 
-You should be able to SSH to VM from host with static IP after running below commands in VM.</n>
-`netplan --debug apply`
+You should be able to SSH to VM from host with static IP after running below commands in VM.  
+`netplan --debug apply`  
 `reboot`
 
 
@@ -66,5 +66,5 @@ enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ### To change hostname:
 ---
-`hostnamectl set-hostname newHostName`</n>
+`hostnamectl set-hostname newHostName`  
 `reboot`
