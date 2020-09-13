@@ -1,28 +1,33 @@
-Network adapter settings for new Virtualbox VN :
-=================================================
+# Pre VM creation
+
+### Network adapter settings for new Virtualbox VN
+
 Adapter 1 : Bridged  <-- To connect via SSH utility(Putty etc.) from host.
 Adapter 2 : NAT      <-- To connect to internet from VM.
 
 
 
-Post VM creation :
-===================
-
+# Post VM creation
+```sh
 sudo apt update && upgrade
+```
 
-Get SSH server :
------------------
+### Get SSH server
+---
+```sh
 sudo apt install openssh-server
 sudo systemctl status ssh
 sudo ufw allow ssh
+```
 
 
-Setting static IP & also using internet over NAT :
----------------------------------------------------
-Modify a relevant netplan network configuration yaml file within /etc/netplan/ directory with below.
-Change IP address for VM as applicable based on host's Gateway IP.
+### Setting static IP & also using internet over NAT :
+---
+Modify a relevant netplan network configuration yaml file within `/etc/netplan/` directory with below.
+Change IP address for VM as applicable based on host Gateway IP.
 
 network:
+```
     version: 2
     renderer: networkd
     ethernets:
@@ -37,38 +42,30 @@ network:
             addresses: [192.168.1.100/24]
             nameservers:
                 addresses: [8.8.8.8, 8.8.4.4]
+```
+
+You should be able to SSH to VM from host with static IP after running below commands in VM.
+``netplan --debug apply`
+`reboot`
 
 
-netplan --debug apply
-reboot
-
-You should be able to SSH to VM from host with static IP after running above in VM.
-"ifconfig -a" command should display two ethernet sockets.
+`ifconfig -a` command should display two ethernet sockets.
 enp0s3 => Bridged
 enp0s8 => NAT
 
+```
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.1.100  netmask 255.255.255.0  broadcast 192.168.1.255
-        inet6 2600:1700:7c08:410:a00:27ff:fe38:4ed8  prefixlen 64  scopeid 0x0<global>
-        inet6 fe80::a00:27ff:fe38:4ed8  prefixlen 64  scopeid 0x20<link>
-        ether 08:00:27:38:4e:d8  txqueuelen 1000  (Ethernet)
-        RX packets 202292  bytes 19366663 (19.3 MB)
-        RX errors 0  dropped 95594  overruns 0  frame 0
-        TX packets 4437  bytes 505276 (505.2 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        [...]
 
 enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 10.0.3.15  netmask 255.255.255.0  broadcast 10.0.3.255
-        inet6 fe80::a00:27ff:fe27:a698  prefixlen 64  scopeid 0x20<link>
-        ether 08:00:27:27:a6:98  txqueuelen 1000  (Ethernet)
-        RX packets 160472  bytes 198919991 (198.9 MB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 50868  bytes 3136267 (3.1 MB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        [...]
+```
 
 
 
-To change hostname:
---------------------
-hostnamectl set-hostname newHostName
-reboot
+### To change hostname:
+---
+`hostnamectl set-hostname newHostName`
+`reboot`
