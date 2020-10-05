@@ -44,3 +44,7 @@ https://pete.akeo.ie/2011/06/crafting-bios-from-scratch.html
 Bootloader :
 https://50linesofco.de/post/2018-02-28-writing-an-x86-hello-world-bootloader-with-assembly
 https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf
+
+
+C pointers :
+https://sites.cs.ucsb.edu/~mikec/cs16/misc/ptrtut12/index.htm
