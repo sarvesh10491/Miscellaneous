@@ -25,7 +25,8 @@ http://katecpp.github.io/struct-members-order/
 http://www.catb.org/esr/structure-packing/
 
 
-Memory corruption : 
+Memory mappings & corruption : 
+https://marek.vavrusa.com/memory/
 http://www.yolinux.com/TUTORIALS/C++MemoryCorruptionAndMemoryLeaks.html
 
 Clocks & timers :
@@ -48,3 +49,11 @@ https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf
 
 C pointers :
 https://sites.cs.ucsb.edu/~mikec/cs16/misc/ptrtut12/index.htm
+
+
+OpenMP :
+https://computing.llnl.gov/tutorials/openMP/
+
+
+gzip & Huffman coding :
+https://jvns.ca/blog/2015/02/22/how-gzip-uses-huffman-coding/
